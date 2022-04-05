@@ -55,3 +55,20 @@ Then select JSON and add the Below IAM policy
 ~~~
 
 ##### please replace <Hosted zone ID of domain from route 53> with your domains hosted zone id.
+To get the hosted zone id go to Route53 and select the domain. There you can see the option Hosted zone details.
+![image](https://user-images.githubusercontent.com/100775801/161690253-3b1635a7-83a0-4b18-b735-7248869e63d1.png)
+
+
+After adding the policy save the policy with a name and create a user with the new policy.
+
+## Conclusion
+
+This tutorial we discussed how to manage the Amazon Route 53 domain hosted zone using IAM user. We have done that with the help of IAM policy.
+
+
+### ⚙️ Connect with Me
+
+<p align="center">
+ <a href="https://www.instagram.com/itz__me_omkar/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/sanu-das-t-3722891b5"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a> 
+
