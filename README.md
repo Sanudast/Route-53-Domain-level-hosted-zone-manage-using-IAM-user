@@ -14,3 +14,44 @@ AWS account with management console access and full access to Route 53 and IAM s
 ## Diagram
 
 ![iam-route53 drawio](https://user-images.githubusercontent.com/100775801/161685467-bd6c881f-15aa-4a52-97bf-a483bc25dbb1.png)
+
+As you can see in the diagram, we are going to create a user Sanu and providing complete manage access to domain "Domain2.com" which hosted in Amazon Route 53.
+The same IAM user can only see other hosted zones in Route53 but not able to manage them.
+
+## Creating IAM Policy
+
+First we need to create an IAM policy for the user. Login into your AWS management console and search IAM on the top navbar. Then select IAM from the drop-down. From the IAM dashboard, click on policies and click Create Policy.
+
+![image](https://user-images.githubusercontent.com/100775801/161687654-6d00b5a0-4537-44ca-8e9b-4d9abc689ddc.png)
+
+Then select JSON and add the Below IAM policy
+
+~~~
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "route53:GetHostedZone",
+                "route53:ChangeResourceRecordSets",
+                "route53:ListResourceRecordSets"
+            ],
+            "Resource": "arn:aws:route53:::hostedzone/<Hosted zone ID of domain from route 53>"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "route53:ListHostedZones",
+                "route53:GetHostedZoneCount",
+                "route53:ListHostedZonesByName"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+~~~
+
+##### please replace <Hosted zone ID of domain from route 53> with your domains hosted zone id.
